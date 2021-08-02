@@ -1,0 +1,35 @@
+#r "nuget: FluentAssertions, *-*"
+using FluentAssertions;
+
+
+if (ans.All(correctans.Contains) && correctans.Count() == ans.Count())
+{
+    context.Pass("Traversal correct");
+}
+else
+{
+    context.Fail("Traversal incorrect");
+}
+
+
+------------------------
+
+
+if (ans.All(correctans.Contains) && correctans.Count() == ans.Count())
+{
+    context.Pass("Traversal correct");
+}
+else
+{
+    throw new Exception("Traversal incorrect");
+}
+
+
+
+
+----------------------
+
+
+ans.Should().BeEquivalentTo(correctans);
+
+context.Pass("Traversal correct");
